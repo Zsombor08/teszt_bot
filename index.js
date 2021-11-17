@@ -1,5 +1,4 @@
 const {Client, Intents} = require("discord.js");
-const tokenfile = require("./tokenfile.json");
 const botconfig = require("./botconfig.json");
 const bot = new Client({intents: [Intents.FLAGS.GUILDS]});
 
@@ -31,4 +30,4 @@ bot.on("message", async message => {
 })
 
 
-bot.login(tokenfile.token);
+bot.login(process.env.BOT_TOKEN);
