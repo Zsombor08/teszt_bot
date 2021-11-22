@@ -264,16 +264,6 @@ if(cmd === `${prefix}clear`){
 
 }
 
-bot.on('guildMemberAdd', member =>{
-    //This is the welcome code
-    const channel = member.guild.channels.cache.find(channel => channel.name === "általános"); //You can change welcome to any text channel you want, "general", "new-doods", ect.
-    if(!channel) return;
-
-    channel.send(`●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\nSzió ! ${member} köszönjük hogy be léptél a szerverünkre!Ha bármi kérdésed van kérdezz bátran!Ha van lehetőséged fusd át a szabályok szobát!😘\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●!`)
-});
-
-
-
 /**const tag_role = "911345112540385300"
 const channelId = "911639523358822430"
 let message1 = `Üdvözöllek <@${member.id}> a Play-Day Arcade szerverén!`
@@ -385,11 +375,15 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
             let HP3Embed = new Discord.MessageEmbed()
             .setTitle("Hibapont 3")
             .setColor("RED")
-            .setDescription(`${role_member1.user.tag}\n kapott három hibapontot!`)
+            .setDescription(`${role_member1.user.tag}\n kapott három hibapontot ezzel autómatikusan ki lett rúgva!`)
 
         message.channel.send(HP3Embed);
 
             role_member1.roles.add(hp3)
+            role_member1.roles.remove("911345112540385300")
+            role_member1.roles.remove("912327203214225489")
+            role_member1.roles.add("912327522660810753")
+            role_member1.roles.remove(hp3)
         }
     } else message.reply("Nincs jogosultságod a parancs használatához!")
 }
