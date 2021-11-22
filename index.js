@@ -193,7 +193,7 @@ let support_role_id = "909458885138595841"
 
 if(cmd === `${prefix}ticket`) {
     let random_num = Math.floor(Math.random() * 999)
-    message.delete();
+    message.delete()
 
     if (!message.member.roles.cache.has(ticket_role_id)){
         message.guild.channels.create(`ticket${random_num}`, {
