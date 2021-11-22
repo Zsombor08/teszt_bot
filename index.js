@@ -252,7 +252,7 @@ if(cmd === `${prefix}clear`){
             
             if(args[0] && isNaN(args[0]) && args[0] <= 100 || 0 < args[0] && args[0] < 101){
 
-                message.channel.send(`${Math.round(args[0])}`);
+                message.channel.send(`${Math.round(args[0])} üzenet törölve!`);
 
                 message.channel.bulkDelete(Math.round(args[0]))
 
