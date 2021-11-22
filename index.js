@@ -127,7 +127,7 @@ bot.on("message", async message => {
                 .setColor("RED")
                 .setDescription(`**Banolta:** ${message.author.tag}\n**Banolva lett:** ${kick_user.user.tag}\n**Ban indoka:** ${args.slice(1).join(" ")}`)
 
-            message.channel.send(KickEmbed);
+            message.channel.send(BanEmbed);
 
                 ban_user.ban(args.slice(1).join(" "));
 
@@ -193,7 +193,6 @@ let support_role_id = "909458885138595841"
 
 if(cmd === `${prefix}ticket`) {
     let random_num = Math.floor(Math.random() * 999)
-    message.delete()
 
     if (!message.member.roles.cache.has(ticket_role_id)){
         message.guild.channels.create(`ticket${random_num}`, {
@@ -215,7 +214,7 @@ if(cmd === `${prefix}ticket`) {
                 }
             ]
         }).then(async (channels) => {
-            channels.send(`Szia <@${message.author.id}>! A hamarosan felvesszük veled a kapcsolatot. Kérjük légy türelmes!`)
+            channels.send(`Szia <@${message.author.id}>! A supportok hamarosan felveszik veled a kapcsolatot. Kérjük légy türelmes!`)
         })
 
         message.member.roles.add(ticket_role_id);
@@ -225,7 +224,6 @@ if(cmd === `${prefix}ticket`) {
 }
 
 if(cmd === `${prefix}close`){
-    message.delete();
     if (message.member.roles.cache.has(support_role_id) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let ping_member = message.mentions.members.first()
         let ping_channel = message.mentions.channels.first()
@@ -252,7 +250,7 @@ if(cmd === `${prefix}clear`){
             
             if(args[0] && isNaN(args[0]) && args[0] <= 100 || 0 < args[0] && args[0] < 101){
 
-                message.channel.send(`${Math.round(args[0])} üzenet törölve!`);
+                message.channel.send(`${Math.round(args[0])}`);
 
                 message.channel.bulkDelete(Math.round(args[0]))
 
@@ -284,8 +282,8 @@ bot.on(newLocal , function (member) {
     message.channel.send(message1)
     message.roles.add(tag_role)
 });**/
-/**const tag_role = "911345112540385300"
-/bot.on("GUILD_MEMBER_ADD", function (member) {
+const tag_role = "911345112540385300"
+/**bot.on("GUILD_MEMBER_ADD", function (member) {
         const channelId = member.guild.systemChannelID;
 
         if (!channelId)
@@ -337,8 +335,11 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     const hp2 = "912257834014629888"
     const hp3 = "912257889110986763"
 
+    let Tulaj = "909391803759886396"
+    let Altulaj = "912318167659986944"
+    let ArcadeV = "912318230041882674"
     if(cmd === `${prefix}hp1`){
-        message.delete()
+    if (message.member.roles.cache.has(Tulaj, Altulaj, ArcadeV) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
@@ -352,10 +353,10 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
 
             role_member1.roles.add(hp1)
         }
+    } else message.reply("Nincs jogosultságod a parancs használatához!")
     }
-
     if(cmd === `${prefix}hp2`){
-        message.delete()
+        if (message.member.roles.cache.has(Tulaj) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
@@ -369,9 +370,11 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
 
             role_member1.roles.add(hp2)
         }
+    } else message.reply("Nincs jogosultságod a parancs használatához!")
     }
+
     if(cmd === `${prefix}hp3`){
-        message.delete()
+        if (message.member.roles.cache.has(Tulaj, Altulaj, ArcadeV) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
@@ -385,9 +388,8 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
 
             role_member1.roles.add(hp3)
         }
-    }
+    } else message.reply("Nincs jogosultságod a parancs használatához!")
+}
 
 });
-
-
 bot.login(process.env.BOT_TOKEN);
