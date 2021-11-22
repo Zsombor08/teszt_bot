@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const bot = new Discord.Client({disableEveryone: true});
 var weather = require('weather-js');
+const { Client } = require("discord.js-commando");
 
 bot.on("ready", async() => {
     console.log(`${bot.user.username} elindult!`)
@@ -9,7 +10,7 @@ bot.on("ready", async() => {
     let státuszok = [
         "Prefix: !",
         "Készítő: Zsombor#8007",
-        "teszt"
+        "Play-Day Arcade"
     ]
 
     setInterval(function() {
@@ -186,11 +187,208 @@ bot.on("message", async message => {
     }
 
 
+    let ticket_category_id = "909455202912989195"
+let ticket_role_id = "909455458144751687"
+let support_role_id = "909458885138595841"
+
+if(cmd === `${prefix}ticket`) {
+    let random_num = Math.floor(Math.random() * 999)
+
+    if (!message.member.roles.cache.has(ticket_role_id)){
+        message.guild.channels.create(`ticket${random_num}`, {
+            type: "text",
+            parent: ticket_category_id,
+            permissionOverwrites: [
+                {
+                    id: message.guild.id,
+                    deny: ["VIEW_CHANNEL"]
+                },
+                {
+                    id: message.author.id,
+                    allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "ATTACH_FILES", "ADD_REACTIONS"]
+                },
+
+                {
+                    id: support_role_id,
+                    allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "ATTACH_FILES", "ADD_REACTIONS"]
+                }
+            ]
+        }).then(async (channels) => {
+            channels.send(`Szia <@${message.author.id}>! A supportok hamarosan felveszik veled a kapcsolatot. Kérjük légy türelmes!`)
+        })
+
+        message.member.roles.add(ticket_role_id);
+    } else {
+        message.reply("Neked már van egy ticketed!")
+    }
+}
+
+if(cmd === `${prefix}close`){
+    if (message.member.roles.cache.has(support_role_id) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
+        let ping_member = message.mentions.members.first()
+        let ping_channel = message.mentions.channels.first()
 
 
-})
+
+        if(args[0] && args[1] && ping_member  && ping_channel && ping_member.roles.cache.has(ticket_role_id)) {
+            ping_member.roles.remove(ticket_role_id)
+            ping_channel.delete()
+        } else {
+            message.reply(`Kérlek olyan embert említs meg akin van @Ticket rang! Helyes használat: ${prefix} close <#csatorna>`)
+        }
+    } else {
+        message.reply("Nincs jogosultságod a parancs használatához!")
+    }
+}
+
+//const rang_id = "909458885138595841"
+//const rang_id2 = "911345176948125776"
+
+if(cmd === `${prefix}clear`){
+    if(message.member.hasPermission("KICK_MEMBERS")){
+        if(message.guild.member(bot.user).hasPermission("ADMINISTRATOR")){
+            
+            if(args[0] && isNaN(args[0]) && args[0] <= 100 || 0 < args[0] && args[0] < 101){
+
+                message.channel.send(`${Math.round(args[0])}`);
+
+                message.channel.bulkDelete(Math.round(args[0]))
+
+            } else {
+                message.reply(`Használat: ${prefix}clear <szám>`)
+            }
+
+        } else message.reply("A botnak megfefelő rangban kell lennie a parancs végrehajtásához!")
+        
+    } else message.reply("Nincs jogod a parancs használatához!")
+
+}
+
+bot.on('guildMemberAdd', member =>{
+    //This is the welcome code
+    const channel = member.guild.channels.cache.find(channel => channel.name === "általános"); //You can change welcome to any text channel you want, "general", "new-doods", ect.
+    if(!channel) return;
+
+    channel.send(`●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\nSzió ! ${member} köszönjük hogy be léptél a szerverünkre!Ha bármi kérdésed van kérdezz bátran!Ha van lehetőséged fusd át a szabályok szobát!😘\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●!`)
+});
 
 
+
+/**const tag_role = "911345112540385300"
+const channelId = "911639523358822430"
+let message1 = `Üdvözöllek <@${member.id}> a Play-Day Arcade szerverén!`
+    const newLocal = "guildMemberAdd";
+bot.on(newLocal , function (member) {
+    message.channel.send(message1)
+    message.roles.add(tag_role)
+});**/
+const tag_role = "911345112540385300"
+/**bot.on("GUILD_MEMBER_ADD", function (member) {
+        const channelId = member.guild.systemChannelID;
+
+        if (!channelId)
+            return;
+
+        let message = `Üdvözöllek <@${member.id}> a Play-Day Arcade szerverén!`;
+
+        member.roles.add(tag_role);
+
+        const channel = member.guild.channels.cache.get(channelId);
+        channel.send(message);
+    })
+
+/**const SUGGESTION_CHANNEL = "911953152306184203"
+if (message.channel.id === SUGGESTION_CHANNEL) {
+    let embed = new Discord.RichEmbed()
+    .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
+    .setColor(0x2894C2)
+    .setTitle('Ötlet')
+    .setDescription(message.content)
+    .setTimestamp(new Date());
+    message.channel.send(embed).then((message) => {
+      const sent = message;
+      sent.react('👍').then(() => {
+        sent.react('👎').then(() => {
+        }).catch(console.error);
+      }).catch(console.error);
+    }).catch(console.error);
+    return message.delete();
+  }**/
+
+  bot.on('message', function(message) {
+    let args = message.content.split(" ").slice('').join(" ");
+    if(message.author.bot)return;
+    const sugch = message.channel.id === "911953152306184203"
+    if (!sugch) return false;
+    if(message.content.startsWith('')){
+      message.delete()
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(message.author.username,message.author.avatarURL())
+    .setColor("00fff7")
+    .setThumbnail(message.author.avatarURL())
+    .setDescription(`> **${args}**`)
+    .setFooter(``)
+    .setTimestamp()
+    message.channel.send(embed).then(msg => {
+      msg.react('👍').then( r => {
+        msg.react('👎')
+      })
+    })
+    } else return;
+    });
+
+    const hp1 = "912022977665720422"
+    const hp2 = "912257834014629888"
+    const hp3 = "912257889110986763"
+
+    if(cmd === `${prefix}hp1`){
+        let role_member1 = message.mentions.members.first();
+        if(args[0] && role_member1){
+
+            
+            let HP1Embed = new Discord.MessageEmbed()
+            .setTitle("Hibapont 1")
+            .setColor("GREEN")
+            .setDescription(`${role_member1.user.tag}\n kapott egy hibapontot!`)
+
+        message.channel.send(HP1Embed);
+
+            role_member1.roles.add(hp1)
+        }
+    }
+
+    if(cmd === `${prefix}hp2`){
+        let role_member1 = message.mentions.members.first();
+        if(args[0] && role_member1){
+
+            
+            let HP2Embed = new Discord.MessageEmbed()
+            .setTitle("Hibapont 2")
+            .setColor("YELLOW")
+            .setDescription(`${role_member1.user.tag}\n kapott két hibapontot!`)
+
+        message.channel.send(HP2Embed);
+
+            role_member1.roles.add(hp2)
+        }
+    }
+    if(cmd === `${prefix}hp3`){
+        let role_member1 = message.mentions.members.first();
+        if(args[0] && role_member1){
+
+            
+            let HP3Embed = new Discord.MessageEmbed()
+            .setTitle("Hibapont 3")
+            .setColor("RED")
+            .setDescription(`${role_member1.user.tag}\n kapott három hibapontot!`)
+
+        message.channel.send(HP3Embed);
+
+            role_member1.roles.add(hp3)
+        }
+    }
+
+});
 
 
 bot.login(process.env.BOT_TOKEN);
