@@ -314,19 +314,14 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     }).catch(console.error);
     return message.delete();
   }**/
-
-  bot.on('message', function(message) {
-    let args = message.content.split(" ").slice('').join(" ");
-    if(message.author.bot)return;
-    const sugch = message.channel.id === "911953152306184203"
-    if (!sugch) return false;
-    if(message.content.startsWith('')){
+  const SUGGESTION_CHANNEL = "911953152306184203"
+    if(cmd === `${prefix}ötlet`){
       message.delete()
+        const newLocal = message.content;
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username,message.author.avatarURL())
-    .setColor("00fff7")
-    .setThumbnail(message.author.avatarURL())
-    .setDescription(`> **${args}**`)
+    .setColor("GREEN")
+    .setDescription(`${args}`)
     .setFooter(``)
     .setTimestamp()
     message.channel.send(embed).then(msg => {
@@ -334,8 +329,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         msg.react('👎')
       })
     })
-    } else return;
-    });
+    }
 
     const hp1 = "912022977665720422"
     const hp2 = "912257834014629888"
