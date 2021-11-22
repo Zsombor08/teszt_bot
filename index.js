@@ -338,7 +338,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     const hp3 = "912257889110986763"
 
     if(cmd === `${prefix}hp1`){
-        message.delete
+        message.delete()
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
@@ -355,7 +355,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     }
 
     if(cmd === `${prefix}hp2`){
-        message.delete
+        message.delete()
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
@@ -371,7 +371,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         }
     }
     if(cmd === `${prefix}hp3`){
-        message.delete
+        message.delete()
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
 
