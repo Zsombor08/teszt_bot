@@ -284,7 +284,7 @@ bot.on(newLocal , function (member) {
     message.channel.send(message1)
     message.roles.add(tag_role)
 });**/
-const tag_role = "911345112540385300"
+/**const tag_role = "911345112540385300"
 /bot.on("GUILD_MEMBER_ADD", function (member) {
         const channelId = member.guild.systemChannelID;
 
