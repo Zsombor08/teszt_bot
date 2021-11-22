@@ -339,6 +339,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     let Altulaj = "912318167659986944"
     let ArcadeV = "912318230041882674"
     if(cmd === `${prefix}hp1`){
+        message.delete()
     if (message.member.roles.cache.has(Tulaj, Altulaj, ArcadeV) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
@@ -356,6 +357,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     } else message.reply("Nincs jogosultságod a parancs használatához!")
     }
     if(cmd === `${prefix}hp2`){
+        message.delete()
         if (message.member.roles.cache.has(Tulaj) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
@@ -374,6 +376,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     }
 
     if(cmd === `${prefix}hp3`){
+        message.delete()
         if (message.member.roles.cache.has(Tulaj, Altulaj, ArcadeV) || message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS")){
         let role_member1 = message.mentions.members.first();
         if(args[0] && role_member1){
