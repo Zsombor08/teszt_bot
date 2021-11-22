@@ -214,7 +214,7 @@ if(cmd === `${prefix}ticket`) {
                 }
             ]
         }).then(async (channels) => {
-            channels.send(`Szia <@${message.author.id}>! A supportok hamarosan felveszik veled a kapcsolatot. Kérjük légy türelmes!`)
+            channels.send(`Szia <@${message.author.id}>! A hamarosan felvesszük veled a kapcsolatot. Kérjük légy türelmes!`)
         })
 
         message.member.roles.add(ticket_role_id);
