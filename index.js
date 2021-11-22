@@ -384,7 +384,6 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         message.channel.send(HP3Embed);
 
             role_member1.roles.add(hp3)
-            await(10000ms)
             message.delete
         }
     }
