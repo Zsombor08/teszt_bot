@@ -354,7 +354,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
 
 if(cmd === `${prefix}stm`){
     message.delete()
-    message.channel.send(`Információk:\n - !clear <összeg> \n - !ban/kick <Alany> <Indok> \n - !ticket(létrehoz egy ticket szobát ahova a vezetőség valamint a ticket generálója lát be) \n - !close <alany> <szoba> (töröl egy bizonyos ticket, szobát, valamint leveszi a Ticket rangot a bizonyos emberről!) \n - !ötlet <üzenet> (az ötlet szobába a minta szerint lehet írni ötleteket, amelyet a bot átalakít és elküld!) \n - !weather <település>(lekéri az adott település időjárását!)`)
+    message.channel.send(`Információk:\n - !ban/kick <Alany> <Indok> \n - !ticket(létrehoz egy ticket szobát ahova a vezetőség valamint a ticket generálója lát be) \n - !close <alany> <szoba> (töröl egy bizonyos ticket, szobát, valamint leveszi a Ticket rangot a bizonyos emberről!) \n - !ötlet <üzenet> (az ötlet szobába a minta szerint lehet írni ötleteket, amelyet a bot átalakít és elküld!) \n - !weather <település>(lekéri az adott település időjárását!)`)
 }
 
 if(cmd === `${prefix}info`){
