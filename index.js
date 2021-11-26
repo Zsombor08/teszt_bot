@@ -225,6 +225,7 @@ if(cmd === `${prefix}ticket`) {
 
         message.member.roles.add(ticket_role_id);
     } else {
+        message.delete()
         message.reply("Neked már van egy ticketed!")
     }
 }
