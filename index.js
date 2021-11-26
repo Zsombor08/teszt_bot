@@ -10,7 +10,7 @@ bot.on("ready", async() => {
     let státuszok = [
         "Prefix: !",
         "Készítő: Zsombor#8007",
-        "Play-Day Arcade"
+        "twitch.tv/zsombor76_"
     ]
 
     setInterval(function() {
