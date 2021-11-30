@@ -316,7 +316,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     }).catch(console.error);
     return message.delete();
   }**/
-    const SUGGESTION_CHANNEL = "913845228107104276"
+  const SUGGESTION_CHANNEL = "913845228107104276"
      if(message.channel.id === SUGGESTION_CHANNEL){
         if(message.member.roles.cache.has("734757419263066144")){
       message.delete()
