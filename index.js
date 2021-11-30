@@ -317,7 +317,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     return message.delete();
   }**/
   const SUGGESTION_CHANNEL = "913845228107104276"
- if(cmd === `${prefix}ötlet`){
+ if(message.member.roles.cache.has("734757419263066144"){
      if(message.channel.id === SUGGESTION_CHANNEL){
       message.delete()
         const newLocal = message.content;
