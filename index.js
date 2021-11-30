@@ -316,15 +316,15 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
     }).catch(console.error);
     return message.delete();
   }**/
-  const SUGGESTION_CHANNEL = "913845228107104276"
- if(message.member.roles.cache.has("734757419263066144"){
+    const SUGGESTION_CHANNEL = "913845228107104276"
      if(message.channel.id === SUGGESTION_CHANNEL){
+        if(message.member.roles.cache.has("734757419263066144")){
       message.delete()
-        const newLocal = message.content;
+        const newLocal = args;
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username,message.author.avatarURL())
     .setColor("YELLOW")
-    .setDescription(args.join(" "))
+    .setDescription(message.content)
     .setFooter(``)
     .setTimestamp()
     message.channel.send(embed).then(msg => {
@@ -332,7 +332,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         msg.react('👎')
       })
      })
-     } else message.reply("Ebben a szobában nem használhatod ezt a parancsot!")
+     } 
     }
 
     /**let SUGGESTION_CHANNEL = "911953152306184203"
@@ -354,11 +354,11 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
 
 if(cmd === `${prefix}stm`){
     message.delete()
-    message.channel.send(`Információk:\n - !ban/kick <Alany> <Indok> \n - !ticket(létrehoz egy ticket szobát ahova a vezetőség valamint a ticket generálója lát be) \n - !close <alany> <szoba> (töröl egy bizonyos ticket, szobát, valamint leveszi a Ticket rangot a bizonyos emberről!) \n - !ötlet <üzenet> (az ötlet szobába a minta szerint lehet írni ötleteket, amelyet a bot átalakít és elküld!) \n - !weather <település>(lekéri az adott település időjárását!)`)
+    message.channel.send(`Információk:\n - !ban/kick <Alany> <Indok> \n - !ticket(létrehoz egy ticket szobát ahova a vezetőség valamint a ticket generálója lát be) \n - !close <alany> <szoba> (töröl egy bizonyos ticket, szobát, valamint leveszi a Ticket rangot a bizonyos emberről!) \n - !weather <település>(lekéri az adott település időjárását!)`)
 }
 
 if(cmd === `${prefix}info`){
     message.delete()
-    message.channel.send(`Információk:\n - !ticket(létrehoz egy ticket szobát ahova a supportok valamint a ticket generálója lát be) \n - !ötlet <üzenet> (az ötlet szobába a minta szerint lehet írni ötleteket, amelyet a bot átalakít és elküld!) \n - !weather <település>(csak úgy beleírtam; lekéri a település időjárását, ezt a bot-parancsok szobába nyugodtan lehet használni!)`)
+    message.channel.send(`Információk:\n - !ticket(létrehoz egy ticket szobát ahova a supportok valamint a ticket generálója lát be) \n - !weather <település>(csak úgy beleírtam; lekéri a település időjárását, ezt a bot-parancsok szobába nyugodtan lehet használni!)`)
 } })
 bot.login(process.env.BOT_TOKEN);
