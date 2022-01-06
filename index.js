@@ -351,6 +351,26 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
                 await msg.react("👎")
         }
         )}else return**/
+    
+    
+      const Otlet_CHANNEL = "927301478450884648"
+     if(message.channel.id === Otlet_CHANNEL){
+        if(message.member.roles.cache.has("927298626546466928")){
+      message.delete()
+        const newLocal = args;
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(message.author.username,message.author.avatarURL())
+    .setColor("YELLOW")
+    .setDescription(message.content)
+    .setFooter(``)
+    .setTimestamp()
+    message.channel.send(embed).then(msg => {
+      msg.react('👍').then( r => {
+        msg.react('👎')
+      })
+     })
+     } 
+    }
 
 if(cmd === `${prefix}stm`){
     message.delete()
