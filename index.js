@@ -22,7 +22,7 @@ bot.on("ready", async() => {
 
 
 bot.on("message", async message => {
-    let MessageArray = message.content.split(" ");
+    let MessageArray = message.content.split("");
     let cmd = MessageArray[0];
     let args = MessageArray.slice(1);
     let prefix = botconfig.prefix;
