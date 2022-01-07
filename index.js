@@ -334,14 +334,33 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         }
         )}else return**/
     
-      const SUGG_CHANNEL = "927301478450884648"
-     if(message.channel.id === SUGG_CHANNEL){
+      const OS_CHANNEL = "927301478450884648"
+     if(message.channel.id === OS_CHANNEL){
         if(message.member.roles.cache.has("927298626546466928")){
       message.delete()
         const newLocal = args;
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username,message.author.avatarURL())
     .setColor("GREEN")
+    .setDescription(message.content)
+    .setFooter(``)
+    .setTimestamp()
+    message.channel.send(embed).then(msg => {
+      msg.react('👍').then( r => {
+        msg.react('👎')
+      })
+     })
+     } 
+    }
+    
+      const SUGGESTION_CHANNEL = "913845228107104276"
+     if(message.channel.id === SUGGESTION_CHANNEL){
+        if(message.member.roles.cache.has("734757419263066144")){
+      message.delete()
+        const newLocal = args;
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(message.author.username,message.author.avatarURL())
+    .setColor("YELLOW")
     .setDescription(message.content)
     .setFooter(``)
     .setTimestamp()
