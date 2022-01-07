@@ -359,7 +359,7 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         const newLocal = args;
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username,message.author.avatarURL())
-    .setColor("YELLOW")
+    .setColor("GREEN")
     .setDescription(message.content)
     .setFooter(``)
     .setTimestamp()
