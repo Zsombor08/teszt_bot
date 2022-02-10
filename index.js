@@ -309,14 +309,14 @@ msg.react('👎')
     const verificationCN = "941411196245004358"
     if(message.channel.id === verificationCN){
     if(message.member.roles.cache.has("734757113917866085")){
-    if(cmd === `${prefix}tag`)
+    if(cmd === `${prefix}tag`){
     const rrembed = new Discord.MessageEmbed()
     .setTitle('Hitelesítés')
     .setDescription('Reagálj ✅-val az üzenetre, hogy megkapd a @Tag rangot!')
     .setColor('GREEN')
     let msgEmbed = await message.channel.send(rrembed)
     msg.react('✅')
-    }}
+    }}}
 
 
 if(cmd === `${prefix}stm`){
