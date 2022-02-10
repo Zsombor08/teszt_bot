@@ -309,12 +309,12 @@ msg.react('👎')
     if(message.member.roles.cache.has("734757113917866085")){
     if(cmd === `${prefix}tag`){
         message.delete()
-    const rrembed = new Discord.MessageEmbed()
+    let rrembed = new Discord.MessageEmbed()
     .setTitle('Hitelesítés')
     .setDescription('Reagálj ✅-val az üzenetre, hogy megkapd a @Tag rangot!')
     .setColor('GREEN')
     let msgEmbed = await message.channel.send(rrembed)
-    msg.react('✅')
+    msgEmbed.react('✅')
     }}
 
 
