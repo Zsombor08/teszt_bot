@@ -287,7 +287,24 @@ bot.on("guildMemberAdd" , function (member) {
 })
     
 
-    
+  const SUGGESTION_CHANNEL = "913845228107104276"
+if(message.channel.id === SUGGESTION_CHANNEL){
+if(message.member.roles.cache.has("734757419263066144")){
+message.delete()
+const newLocal = args;
+let embed = new Discord.MessageEmbed()
+.setAuthor(message.author.username,message.author.avatarURL())
+.setColor("YELLOW")
+.setDescription(message.content)
+.setFooter(``)
+.setTimestamp()
+message.channel.send(embed).then(msg => {
+msg.react('👍').then( r => {
+msg.react('👎')
+})
+})
+}
+} 
 
 
 if(cmd === `${prefix}stm`){
