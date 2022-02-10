@@ -334,9 +334,9 @@ if (message.channel.id === SUGGESTION_CHANNEL) {
         }
         )}else return**/
     
-      const OS_CHANNEL = "927301478450884648"
+      const OS_CHANNEL = "905510884552638485"
      if(message.channel.id === OS_CHANNEL){
-        if(message.member.roles.cache.has("927298626546466928")){
+        if(message.member.roles.cache.has("901890003418906639")){
       message.delete()
         const newLocal = args;
     let embed = new Discord.MessageEmbed()
