@@ -306,8 +306,6 @@ msg.react('👎')
 }
 } 
     
-    const verificationCN = "941411196245004358"
-    if(message.channel.id === verificationCN){
     if(message.member.roles.cache.has("734757113917866085")){
     if(cmd === `${prefix}tag`){
         message.delete()
@@ -317,7 +315,7 @@ msg.react('👎')
     .setColor('GREEN')
     let msgEmbed = await message.channel.send(rrembed)
     msg.react('✅')
-    }}}
+    }}
 
 
 if(cmd === `${prefix}stm`){
