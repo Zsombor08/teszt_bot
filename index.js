@@ -305,6 +305,18 @@ msg.react('👎')
 })
 }
 } 
+    
+    const verificationCN = "941411196245004358"
+    if(message.channel.id === SUGGESTION_CHANNEL){
+    if(message.member.roles.cache.has("734757113917866085")){
+    if(cmd === `${prefix}tag`)
+    let rrembed = new Discord.MessageEmbed()
+    .setTitle('Hitelesítés')
+    .setDescription('Reagálj ✅-val az üzenetre, hogy megkapd a @Tag rangot!')
+    .setColor('GREEN')
+    let msgEmbed = await message.channel.send(rrembed)
+    msgEmbed.react('✅')
+    }}
 
 
 if(cmd === `${prefix}stm`){
