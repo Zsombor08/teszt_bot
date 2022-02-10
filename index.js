@@ -285,54 +285,6 @@ bot.on("guildMemberAdd" , function (member) {
 
     ujtag.roles.add("734757419263066144")
 })
-/**bot.on("GUILD_MEMBER_ADD", function (member) {
-        const channelId = member.guild.systemChannelID;
-
-        if (!channelId)
-            return;
-
-        let message = `Üdvözöllek <@${member.id}> a Play-Day Arcade szerverén!`;
-
-        member.roles.add(tag_role);
-
-        const channel = member.guild.channels.cache.get(channelId);
-        channel.send(message);
-    })
-
-/**const SUGGESTION_CHANNEL = "911953152306184203"
-if (message.channel.id === SUGGESTION_CHANNEL) {
-    let embed = new Discord.RichEmbed()
-    .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
-    .setColor(0x2894C2)
-    .setTitle('Ötlet')
-    .setDescription(message.content)
-    .setTimestamp(new Date());
-    message.channel.send(embed).then((message) => {
-      const sent = message;
-      sent.react('👍').then(() => {
-        sent.react('👎').then(() => {
-        }).catch(console.error);
-      }).catch(console.error);
-    }).catch(console.error);
-    return message.delete();
-  }**/
-
-    /**let SUGGESTION_CHANNEL = "911953152306184203"
-
-    if(message.channel.id === SUGGESTION_CHANNEL){
-        message.delete()
-            let otlet_embed = new Discord.MessageEmbed()
-            .setAuthor(message.author.tag)
-            .setDescription(args.join(" "))
-            .setColor("YELLOW")
-            .setTimestamp(message.createdAt)
-            .setFooter(bot.user.username)
-
-        message.channel.send(otlet_embed).then(async msg => {
-                await msg.react("👍")
-                await msg.react("👎")
-        }
-        )}else return**/
     
 
     
