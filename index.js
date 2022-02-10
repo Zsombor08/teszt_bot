@@ -310,7 +310,7 @@ msg.react('👎')
     if(message.channel.id === verificationCN){
     if(message.member.roles.cache.has("734757113917866085")){
     if(cmd === `${prefix}tag`)
-    let rrembed = new Discord.MessageEmbed()
+    const rrembed = new Discord.MessageEmbed()
     .setTitle('Hitelesítés')
     .setDescription('Reagálj ✅-val az üzenetre, hogy megkapd a @Tag rangot!')
     .setColor('GREEN')
