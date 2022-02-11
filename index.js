@@ -17,7 +17,7 @@ bot.on("ready", async() => {
         let status = státuszok[Math.floor(Math.random()* státuszok.length)]
 
         bot.user.setActivity(status, {type: "WATCHING"})
-    }, 3000)
+3000)
 })
 
 
