@@ -19,7 +19,7 @@ bot.on("ready", async() => {
         bot.user.setActivity(status, {type: "WATCHING"})
 3000)
 })
-
+)
 
 bot.on("message", async message => {
     let MessageArray = message.content.split("");
