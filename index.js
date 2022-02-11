@@ -315,5 +315,5 @@ if(cmd === `${prefix}stm`){
 if(cmd === `${prefix}info`){
     message.delete()
     message.channel.send(`Információk:\n - !ticket(létrehoz egy ticket szobát ahova a supportok valamint a ticket generálója lát be) \n - !weather <település>(csak úgy beleírtam; lekéri a település időjárását, ezt a bot-parancsok szobába nyugodtan lehet használni!)`)
-} })
+})
 bot.login(process.env.BOT_TOKEN);
