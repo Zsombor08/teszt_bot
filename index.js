@@ -1,3 +1,4 @@
+
 const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const bot = new Discord.Client({disableEveryone: true});
@@ -7,19 +8,19 @@ const { Client } = require("discord.js-commando");
 bot.on("ready", async() => {
     console.log(`${bot.user.username} elindult!`)
 
+
     let státuszok = [
-        "Prefix: !",
-        "Készítő: Zsombor#8007",
-        "twitch.tv/zsombor76_"
+        "",
+        "",
+        ""
     ]
 
     setInterval(function() {
         let status = státuszok[Math.floor(Math.random()* státuszok.length)]
 
-        bot.user.setActivity(status, {type: "WATCHING"})
-3000)
+        bot.user.setActivity(status, {type: ""})
+    },3000)
 })
-)
 
 bot.on("message", async message => {
     let MessageArray = message.content.split("");
@@ -286,15 +287,14 @@ bot.on("guildMemberAdd" , function (member) {
     ujtag.roles.add("734757419263066144")
 })
     
-
-  const SUGGESTION_CHANNEL = "913845228107104276"
-if(message.channel.id === SUGGESTION_CHANNEL){
-if(message.member.roles.cache.has("734757419263066144")){
+const OS_CHANNEL = "942154557843193887"
+if(message.channel.id === OS_CHANNEL){
+if(message.member.roles.cache.has("942152089696628736")){
 message.delete()
 const newLocal = args;
 let embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username,message.author.avatarURL())
-.setColor("YELLOW")
+.setColor(0x80ff00)
 .setDescription(message.content)
 .setFooter(``)
 .setTimestamp()
@@ -304,8 +304,29 @@ msg.react('👎')
 })
 })
 }
-} 
+}
+    const BUG_CHANNEL = "942153621775192084"
+    const BUG_LOG_CHANNEL = "942152882281648178"
 
+          if (message.channel.id === BUG_CHANNEL) {
+              if (message.member.roles.cache.has("942152089696628736")) {
+          let embedUser = new Discord.MessageEmbed()
+          .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
+          .setColor("RED")
+          .setTitle('Bug Jelentés')
+          .setDescription('Sikeresen rögzítettük az általad be küldött problémát!')
+          .setTimestamp(new Date());
+          let embedStaff = new Discord.MessageEmbed()
+          .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
+          .setColor("red")
+          .setTitle('Bug Jelentés')
+          .setDescription(message.content)
+          .setTimestamp(new Date());
+          message.channel.send(embedUser).then(null).catch(console.error);
+          bot.channels.cache.get(BUG_LOG_CHANNEL).send(embedStaff).then(null).catch(console.error);
+          return message.delete();
+        }
+};
 
 if(cmd === `${prefix}stm`){
     message.delete()
@@ -315,5 +336,5 @@ if(cmd === `${prefix}stm`){
 if(cmd === `${prefix}info`){
     message.delete()
     message.channel.send(`Információk:\n - !ticket(létrehoz egy ticket szobát ahova a supportok valamint a ticket generálója lát be) \n - !weather <település>(csak úgy beleírtam; lekéri a település időjárását, ezt a bot-parancsok szobába nyugodtan lehet használni!)`)
-})
+}})
 bot.login(process.env.BOT_TOKEN);
