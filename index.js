@@ -200,7 +200,7 @@ let support_role_id = "913847051345866774"
 let ticket_channel = "960934649738199050"
 let ticket_notify = "960939546747473920"
 
-if(cmd === `${prefix}ticket`) {
+if(message.channel.id === ticket_channel) {
     let random_num = Math.floor(Math.random() * 999)
 
     if (!message.member.roles.cache.has(ticket_role_id)){
