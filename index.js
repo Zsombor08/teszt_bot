@@ -197,8 +197,9 @@ bot.on("message", async message => {
     let ticket_category_id = "913846783774441552"
 let ticket_role_id = "913846918495494244"
 let support_role_id = "913847051345866774"
+let ticket_channel = "960934649738199050"
 
-if(cmd === `${prefix}ticket`) {
+if(message.channel.id === ticket_channel) {
     let random_num = Math.floor(Math.random() * 999)
 
     if (!message.member.roles.cache.has(ticket_role_id)){
@@ -318,7 +319,7 @@ const newLocal = args;
 //.setDescription()
 //.setFooter(``)
 //.setTimestamp()
-message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_ @734757419263066144")
+message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_"ping_member.roles.cache.has("734757419263066144"))
 }
 }
     
