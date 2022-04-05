@@ -305,6 +305,27 @@ msg.react('👎')
 })
 }
 }
+    
+    
+    const STREAM_CHANNEL = "734758453343420436"
+if(message.channel.id === STREAM_CHANNEL){
+if(message.member.roles.cache.has("734757113917866085")){
+message.delete()
+const newLocal = args;
+//let embed = new Discord.MessageEmbed()
+//.setAuthor("Zsombor Bot")
+//.setColor(0x80ff00)
+//.setDescription()
+//.setFooter(``)
+//.setTimestamp()
+message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_ @Tag")
+}
+}
+    
+    
+    
+    
+    
     const BUG_CHANNEL = "942153621775192084"
     const BUG_LOG_CHANNEL = "942152882281648178"
 
