@@ -318,7 +318,7 @@ const newLocal = args;
 //.setDescription()
 //.setFooter(``)
 //.setTimestamp()
-message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_ @Tag")
+message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_ @734757419263066144")
 }
 }
     
