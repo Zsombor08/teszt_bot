@@ -199,6 +199,7 @@ let ticket_role_id = "913846918495494244"
 let support_role_id = "913847051345866774"
 let ticket_channel = "960934649738199050"
 
+if (!message.member.roles.cache.has("734757419263066144")){
 if(message.channel.id === ticket_channel) {
     let random_num = Math.floor(Math.random() * 999)
 
@@ -230,6 +231,7 @@ if(message.channel.id === ticket_channel) {
         message.delete()
         message.reply("Neked már van egy ticketed!")
     }
+}
 }
 
 if(cmd === `${prefix}close`){
@@ -319,7 +321,7 @@ const newLocal = args;
 //.setDescription()
 //.setFooter(``)
 //.setTimestamp()
-message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_" && ping_member.roles.cache.has("734757419263066144"))
+message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_ "<&@734757419263066144>)
 }
 }
     
