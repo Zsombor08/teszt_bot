@@ -319,7 +319,7 @@ const newLocal = args;
 //.setDescription()
 //.setFooter(``)
 //.setTimestamp()
-message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_"ping_member.roles.cache.has("734757419263066144"))
+message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombor76_" && ping_member.roles.cache.has("734757419263066144"))
 }
 }
     
