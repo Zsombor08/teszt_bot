@@ -199,7 +199,7 @@ let ticket_role_id = "913846918495494244"
 let support_role_id = "913847051345866774"
 let ticket_channel = "960934649738199050"
 
-if (!message.member.roles.cache.has("734757419263066144")){
+
 if(message.channel.id === ticket_channel) {
     let random_num = Math.floor(Math.random() * 999)
 
@@ -221,17 +221,12 @@ if(message.channel.id === ticket_channel) {
                     id: support_role_id,
                     allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "ATTACH_FILES", "ADD_REACTIONS"]
                 }
-            ]
-        }).then(async (channels) => {
-            channels.send(`Szia <@${message.author.id}>! A supportok hamarosan felveszik veled a kapcsolatot. Kérjük légy türelmes!`)
-        })
-
+            })
         message.member.roles.add(ticket_role_id);
     } else {
         message.delete()
         message.reply("Neked már van egy ticketed!")
     }
-}
 }
 
 if(cmd === `${prefix}close`){
