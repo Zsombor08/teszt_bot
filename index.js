@@ -198,9 +198,9 @@ bot.on("message", async message => {
 let ticket_role_id = "913846918495494244"
 let support_role_id = "913847051345866774"
 let ticket_channel = "960934649738199050"
+let ticket_notify = "960939546747473920"
 
-
-if(message.channel.id === ticket_channel) {
+if(cmd === `${prefix}ticket`) {
     let random_num = Math.floor(Math.random() * 999)
 
     if (!message.member.roles.cache.has(ticket_role_id)){
@@ -221,11 +221,15 @@ if(message.channel.id === ticket_channel) {
                     id: support_role_id,
                     allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "ATTACH_FILES", "ADD_REACTIONS"]
                 }
-            })
+            ]
+        }).then(async (channels) => {
+        })
+
         message.member.roles.add(ticket_role_id);
     } else {
         message.delete()
-        message.reply("Neked már van egy ticketed!")
+        bot.channels.cache.get(ticket_notify).send("Neked már van egy ticketed <$@member>").then(null).catch(console.error);
+        //message.reply("Neked már van egy ticketed!")
     }
 }
 
