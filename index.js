@@ -289,9 +289,9 @@ bot.on("guildMemberAdd" , function (member) {
     ujtag.roles.add("734757419263066144")
 })
     
-const OS_CHANNEL = "942154557843193887"
+const OS_CHANNEL = "988492367646584867"
 if(message.channel.id === OS_CHANNEL){
-if(message.member.roles.cache.has("942152089696628736")){
+if(message.member.roles.cache.has("988492366488952855")){
 message.delete()
 const newLocal = args;
 let embed = new Discord.MessageEmbed()
@@ -328,8 +328,8 @@ message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombo
     
     
     
-    const BUG_CHANNEL = "942153621775192084"
-    const BUG_LOG_CHANNEL = "942152882281648178"
+    const BUG_CHANNEL = "988492367646584862"
+    const BUG_LOG_CHANNEL = "988492367201968132"
 
           if (message.channel.id === BUG_CHANNEL) {
               if (message.member.roles.cache.has("942152089696628736")) {
