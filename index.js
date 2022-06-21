@@ -313,7 +313,7 @@ message.channel.send("Zsombor streamel. Gyertek nézni! https://twitch.tv/zsombo
     const BUG_LOG_CHANNEL = "988492367201968132"
 
           if (message.channel.id === BUG_CHANNEL) {
-              if (message.member.roles.cache.has("942152089696628736")) {
+              if (message.member.roles.cache.has("988492366488952855")) {
           let embedUser = new Discord.MessageEmbed()
           .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
           .setColor("RED")
