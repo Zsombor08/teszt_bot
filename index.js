@@ -21,9 +21,17 @@ bot.on("ready", async() => {
         bot.user.setActivity(status, {type: ""})
     },3000)
 })
+bot.on("message", async message => {
+    let MessageArray = message.content.split("");
+    let cmd = MessageArray[0];
+    let args = MessageArray.slice(1);
+    let prefix = botconfig.prefix;
 
+    if(cmd === `${prefix}hello`){
+        message.channel.send("Szia");
+    }
 
-    
+ 
 const OS_CHANNEL = "988492367646584867"
 if(message.channel.id === OS_CHANNEL){
 if(message.member.roles.cache.has("988492366488952855")){
