@@ -254,25 +254,6 @@ if(cmd === `${prefix}close`){
 //const rang_id = "909458885138595841"
 //const rang_id2 = "911345176948125776"
 
-if(cmd === `${prefix}clear`){
-    if(message.member.hasPermission("KICK_MEMBERS")){
-        if(message.guild.member(bot.user).hasPermission("ADMINISTRATOR")){
-            
-            if(args[0] && isNaN(args[0]) && args[0] <= 100 || 0 < args[0] && args[0] < 101){
-
-                message.channel.send(`${Math.round(args[0])}`);
-
-                message.channel.bulkDelete(Math.round(args[0]))
-
-            } else {
-                message.reply(`Használat: ${prefix}clear <szám>`)
-            }
-
-        } else message.reply("A botnak megfefelő rangban kell lennie a parancs végrehajtásához!")
-        
-    } else message.reply("Nincs jogod a parancs használatához!")
-
-}
 
 /**const tag_role = "911345112540385300"
 const channelId = "911639523358822430"
